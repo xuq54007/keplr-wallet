@@ -1,7 +1,7 @@
 name: Publish
 on:
-   branches:
-     - main
+  branches:
+    - main
  push:
    branches:
      - main
