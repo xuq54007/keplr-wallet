@@ -1,0 +1,11 @@
+{
+  "version": "0.12.70",
+  "useWorkspaces": true,
+  "npmClient": "yarn",
+  "command": {
+    "version": {
+      "forcePublish": true,
+      "exact": true
+    }
+  }
+}

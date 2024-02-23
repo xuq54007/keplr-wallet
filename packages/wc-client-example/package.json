@@ -1,0 +1,30 @@
+{
+  "name": "@keplr-wallet/wc-client-example",
+  "version": "0.12.70",
+  "author": "chainapsis",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "serve": "parcel ./src/index.html"
+  },
+  "dependencies": {
+    "@keplr-wallet/common": "0.12.70",
+    "@keplr-wallet/cosmos": "0.12.70",
+    "@keplr-wallet/simple-fetch": "0.12.70",
+    "@keplr-wallet/stores": "0.12.70",
+    "@keplr-wallet/types": "0.12.70",
+    "@keplr-wallet/wc-client": "0.12.70",
+    "@keplr-wallet/wc-qrcode-modal": "0.12.70",
+    "@walletconnect/sign-client": "2.5.2",
+    "@walletconnect/types": "2.5.2",
+    "buffer": "^6.0.3"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "peerDependencies": {
+    "mobx-react-lite": "^3",
+    "react": "^16.8.0 || ^17 || ^18",
+    "react-dom": "^16.8.0 || ^17 || ^18"
+  }
+}

@@ -1,0 +1,33 @@
+name: Publish
+on:
+   branches:
+     - main
+ push:
+   branches:
+     - main
+
+jobs:
+  publish:
+    name: Publish to npm and create release
+    runs-on: ubuntu-20.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          registry-url: "https://registry.npmjs.org"
+      - run: npm install --global yarn
+      - run: sudo apt-get update
+      - run: sudo apt-get install libusb-1.0-0-dev
+      - run: sudo apt-get install curl
+      - run: curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v21.3/protoc-21.3-linux-x86_64.zip
+      - run: unzip protoc-21.3-linux-x86_64.zip -d $HOME/protoc && echo $HOME/protoc/bin >> $GITHUB_PATH
+      - run: yarn install --immutable
+      - run: yarn ci-lint
+      - run: yarn ci
+      - run: sudo apt-get install gh
+      - run: npx zx ./scripts/publish.mjs
